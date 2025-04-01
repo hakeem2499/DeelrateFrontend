@@ -1,0 +1,110 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "policies": {
+        "type": "Group",
+        "config": {
+          "label": "Policies",
+          "repeat": true,
+          "fields": {
+            "link_to_policies": {
+              "type": "Link",
+              "config": {
+                "label": "link to policies",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "contact_information": {
+        "type": "Group",
+        "config": {
+          "label": "Contact Information",
+          "repeat": true,
+          "fields": {
+            "contact_information": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Contact Information",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,hyperlink,em,list-item"
+              }
+            }
+          }
+        }
+      },
+      "company": {
+        "type": "Group",
+        "config": {
+          "label": "Company",
+          "repeat": true,
+          "fields": {
+            "link_to_company": {
+              "type": "Link",
+              "config": {
+                "label": "link to company",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "our_services": {
+        "type": "Group",
+        "config": {
+          "label": "Our Services",
+          "repeat": true,
+          "fields": {
+            "link_to_services": {
+              "type": "Link",
+              "config": {
+                "label": "Link to services",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

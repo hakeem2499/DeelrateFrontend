@@ -1,0 +1,116 @@
+{
+  "id": "features",
+  "type": "SharedSlice",
+  "name": "Features",
+  "description": "Features",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3,heading4,heading5,strong,em"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong"
+          }
+        },
+        "feature": {
+          "type": "Group",
+          "config": {
+            "label": "Feature",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "heading5,heading6,heading4,strong"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong"
+                }
+              },
+              "hasimage": {
+                "type": "Boolean",
+                "config": {
+                  "label": "HasImage",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": true
+                }
+              },
+              "featureindex": {
+                "type": "Select",
+                "config": {
+                  "label": "FeatureIndex",
+                  "placeholder": "",
+                  "options": [
+                    "First",
+                    "Second",
+                    "Third",
+                    "Fourth"
+                  ]
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "multipleimages": {
+          "type": "Group",
+          "config": {
+            "label": "MultipleImages",
+            "repeat": true,
+            "fields": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "label": "Icon",
+                  "placeholder": "",
+                  "options": [
+                    "Invest",
+                    "Earn",
+                    "RaiseCapital",
+                    "Diversify"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
