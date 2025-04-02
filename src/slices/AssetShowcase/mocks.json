@@ -21,54 +21,14 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"heading1",
+								"asset",
 								{
-									"__TYPE__": "StructuredTextContent",
-									"value": [
-										{
-											"type": "heading3",
-											"content": {
-												"text": "Arrow"
-											}
-										}
-									]
-								}
-							],
-							[
-								"link",
-								{
-									"key": "5d28cd13-0d56-4bdd-a6b2-a8e8c47de978",
+									"key": "10d8202a-5fe7-4836-a80c-b6bf214ce508",
 									"__TYPE__": "LinkContent",
 									"value": {
-										"__TYPE__": "ExternalLink",
-										"url": "http://google.com",
-										"text": "bill"
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
 									}
-								}
-							],
-							[
-								"image",
-								{
-									"__TYPE__": "ImageContent",
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-										"width": 3024,
-										"height": 3778
-									},
-									"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
-									"width": 3024,
-									"height": 3778,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "known",
-									"thumbnails": {}
 								}
 							]
 						]

@@ -215,9 +215,7 @@
 @media (max-width: 768px) {
 
 
-  .header.scrolled {
-    
-  }
+  .header.scrolled {}
 }
 
 
@@ -366,62 +364,68 @@ aside.open .aside-right {
   bottom: 0;
   z-index: -1;
   background:
-      calc( .9*var(--s)) calc( .9*var(--s))/var(--_p),
-      calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
-      calc( .7*var(--s)) calc( .7*var(--s))/var(--_g),
-      calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
-      conic-gradient(from 90deg at 20% 20%,var(--c2) 25%,var(--c1) 0) 
-      0 0/var(--s) var(--s);
+    calc(.9*var(--s)) calc(.9*var(--s))/var(--_p),
+    calc(-.1*var(--s)) calc(-.1*var(--s))/var(--_p),
+    calc(.7*var(--s)) calc(.7*var(--s))/var(--_g),
+    calc(-.3*var(--s)) calc(-.3*var(--s))/var(--_g),
+    conic-gradient(from 90deg at 20% 20%, var(--c2) 25%, var(--c1) 0) 0 0/var(--s) var(--s);
   animation: m 20s infinite linear;
-  opacity: 0.5; /* More subtle background */
+  opacity: 0.5;
+  /* More subtle background */
 }
+
 @media (max-width:768px) {
-  .hero::before{
+  .hero::before {
     opacity: 0.2;
   }
 }
 
 .hero-content {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent overlay */
 
 }
 
 @keyframes m {
   0% {
-      background-position: 
-          calc( .9*var(--s)) calc( .9*var(--s)),
-          calc(-.1*var(--s)) calc(-.1*var(--s)),
-          calc( .7*var(--s)) calc( .7*var(--s)),
-          calc(-.3*var(--s)) calc(-.3*var(--s)),0 0;
+    background-position:
+      calc(.9*var(--s)) calc(.9*var(--s)),
+      calc(-.1*var(--s)) calc(-.1*var(--s)),
+      calc(.7*var(--s)) calc(.7*var(--s)),
+      calc(-.3*var(--s)) calc(-.3*var(--s)), 0 0;
   }
+
   25% {
-      background-position: 
-          calc(1.9*var(--s)) calc( .9*var(--s)),
-          calc(-1.1*var(--s)) calc(-.1*var(--s)),
-          calc(1.7*var(--s)) calc( .7*var(--s)),
-          calc(-1.3*var(--s)) calc(-.3*var(--s)),0 0;
+    background-position:
+      calc(1.9*var(--s)) calc(.9*var(--s)),
+      calc(-1.1*var(--s)) calc(-.1*var(--s)),
+      calc(1.7*var(--s)) calc(.7*var(--s)),
+      calc(-1.3*var(--s)) calc(-.3*var(--s)), 0 0;
   }
+
   50% {
-      background-position: 
-          calc(1.9*var(--s)) calc(-.1*var(--s)),
-          calc(-1.1*var(--s)) calc( .9*var(--s)),
-          calc(1.7*var(--s)) calc(-.3*var(--s)),
-          calc(-1.3*var(--s)) calc( .7*var(--s)),0 0;
+    background-position:
+      calc(1.9*var(--s)) calc(-.1*var(--s)),
+      calc(-1.1*var(--s)) calc(.9*var(--s)),
+      calc(1.7*var(--s)) calc(-.3*var(--s)),
+      calc(-1.3*var(--s)) calc(.7*var(--s)), 0 0;
   }
+
   75% {
-      background-position: 
-          calc(2.9*var(--s)) calc(-.1*var(--s)),
-          calc(-2.1*var(--s)) calc( .9*var(--s)),
-          calc(2.7*var(--s)) calc(-.3*var(--s)),
-          calc(-2.3*var(--s)) calc( .7*var(--s)),0 0;
+    background-position:
+      calc(2.9*var(--s)) calc(-.1*var(--s)),
+      calc(-2.1*var(--s)) calc(.9*var(--s)),
+      calc(2.7*var(--s)) calc(-.3*var(--s)),
+      calc(-2.3*var(--s)) calc(.7*var(--s)), 0 0;
   }
+
   100% {
-      background-position: 
-          calc(2.9*var(--s)) calc(-1.1*var(--s)),
-          calc(-2.1*var(--s)) calc(1.9*var(--s)),
-          calc(2.7*var(--s)) calc(-1.3*var(--s)),
-          calc(-2.3*var(--s)) calc(1.7*var(--s)),0 0;
+    background-position:
+      calc(2.9*var(--s)) calc(-1.1*var(--s)),
+      calc(-2.1*var(--s)) calc(1.9*var(--s)),
+      calc(2.7*var(--s)) calc(-1.3*var(--s)),
+      calc(-2.3*var(--s)) calc(1.7*var(--s)), 0 0;
   }
 }
 
@@ -540,7 +544,8 @@ aside.open .aside-right {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 75%; /* 4:3 aspect ratio */
+  padding-bottom: 75%;
+  /* 4:3 aspect ratio */
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -560,12 +565,12 @@ aside.open .aside-right {
 
 /* Text Overlay */
 .header-wrapper {
-  position: absolute;
+
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
   color: white;
   transition: all 0.3s ease;
   display: flex;
@@ -591,66 +596,70 @@ aside.open .aside-right {
 /* Hover Effects */
 @media (hover: hover) and (pointer: fine) {
   .wrapper:hover .image-wrapper .image {
-      transform: scale(1.1);
+    transform: scale(1.1);
   }
-  
+
   .wrapper:hover .header-wrapper h3:first-child {
-      transform: translateY(-20px) scale(0.9);
-      opacity: 0.7;
+    transform: translateY(-20px) scale(0.7);
+    opacity: 0.7;
   }
-  
+
   .wrapper:hover .header-wrapper h3:nth-child(2) {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 /* Mobile Touch Effects */
 @media (max-width: 768px) {
   .wrapper {
-      margin: 15px auto;
+    margin: 15px auto;
   }
-  
+  .image-wrapper{
+    padding-bottom: 60%;
+  }
   .header-wrapper {
-      padding: 15px;
+    padding: 15px;
+
   }
-  
+
   .header-wrapper h3:first-child {
-      transform: translateY(0) scale(1);
-      opacity: 1;
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
-  
+
   .header-wrapper h3:nth-child(2) {
-      opacity: 1;
-      transform: translateY(0);
-      font-size: clamp(16px, 4vw, 30px);
+    opacity: 1;
+    transform: translateY(0);
+    font-size: clamp(16px, 4vw, 30px);
   }
 }
 
 /* Desktop Layout */
 @media (min-width: 992px) {
   .wrapper {
-      flex-direction: row;
-      height: 300px;
+    flex-direction: row;
+    height: 400px;
   }
-  
+
   .image-wrapper {
-      height: 100%;
-      padding-bottom: 0;
-      width: 70%;
+    height: 100%;
+    padding: auto;
+    width: 70%;
   }
-  
+
   .header-wrapper {
-      width: 30%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      justify-content: center;
-      left: auto;
-      right: 0;
-      bottom: auto;
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    left: auto;
+    right: 0;
+    bottom: auto;
   }
-  
+
   .wrapper:hover .image-wrapper {
-      width: 100%;
+    width: 100%;
   }
 }

@@ -27,32 +27,15 @@
             "label": "Assets",
             "repeat": true,
             "fields": {
-              "heading1": {
-                "type": "StructuredText",
-                "config": {
-                  "label": "Heading1",
-                  "placeholder": "",
-                  "allowTargetBlank": true,
-                  "single": "heading3,strong,em"
-                }
-              },
-              "link": {
+              "asset": {
                 "type": "Link",
                 "config": {
-                  "label": "Link",
-                  "placeholder": "",
-                  "select": null,
-                  "allowTargetBlank": true,
-                  "allowText": true,
-                  "repeat": false
-                }
-              },
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "image",
-                  "constraint": {},
-                  "thumbnails": []
+                  "label": "Asset",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "assets"
+                  ]
                 }
               }
             }

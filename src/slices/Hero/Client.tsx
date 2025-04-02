@@ -4,6 +4,7 @@
 import ButtonLink from '@/app/components/ui/ButtonLink'
 import { Content, isFilled } from '@prismicio/client'
 import { PrismicNextImage } from '@prismicio/next';
+import * as prismic from "@prismicio/client";
 import { PrismicText } from '@prismicio/react';
 import { motion } from 'motion/react'
 import React from 'react'
@@ -28,8 +29,8 @@ const Client = ({ slice }: {
             </div>
             <div className='lg:w-3/5'>
 
-                <h1 className="relative z-10 mx-auto max-w-4xl text-center text-4xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
-                    {"Launch your website in hours, not days"
+                <h1 className="relative z-10 mx-auto max-w-4xl text-center lg:leading-16 text-3xl font-bold text-slate-900 md:text-4xl lg:text-5xl dark:text-slate-100">
+                    {(slice.primary.heading && prismic.asText(slice.primary.heading))
                         .split(" ")
                         .map((word, index) => (
                             <motion.span
@@ -58,7 +59,7 @@ const Client = ({ slice }: {
                         duration: 0.3,
                         delay: 0.8,
                     }}
-                    className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+                    className="relative z-10 mx-auto max-w-xl py-4 text-center md:text-xl text-lg font-semibold text-neutral-600 dark:text-neutral-200"
                 >
                     <PrismicText field={slice.primary.body} />
                 </motion.div>
