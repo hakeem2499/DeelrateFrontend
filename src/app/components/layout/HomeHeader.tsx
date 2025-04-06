@@ -52,7 +52,7 @@ export const AnimatedHeader = () => {
                 isSideBarOpen && 'open  pointer-events-auto'
             )}>
                 <div className="absolute inset-0 flex">
-                    <div className="aside-section aside-left w-1/2 bg-primary h-full">
+                    <div className="aside-section aside-left w-1/2 bg-slate-950 not-dark:bg-foreground h-full">
                         <div className="aside-content items-center flex flex-col gap-8 justify-center h-full">
                             <p className="text-4xl text-center-text-balance font-semibold">
                                 Own a Piece of the Future

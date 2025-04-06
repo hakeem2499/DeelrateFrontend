@@ -10,6 +10,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@arcjet/next": "^1.0.0-beta.5",
     "@hookform/resolvers": "^5.0.1",
     "@prisma/client": "^6.5.0",
     "@prismicio/client": "^7.17.0",

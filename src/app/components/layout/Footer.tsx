@@ -194,7 +194,7 @@ export async function Footer() {
 
 
                 </div>
-                <p className="mx-auto text-xs gap-2 inline-flex items-center"><span><Copyright /></span> 2025 Deelrate. All Right Reserved</p>
+                <p className="mx-auto text-xs gap-2 inline-flex items-center"><span className="text-xl"><Copyright /></span> 2025 Deelrate. All Right Reserved</p>
             </footer>
 
 

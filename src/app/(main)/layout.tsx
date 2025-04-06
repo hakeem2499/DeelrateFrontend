@@ -16,12 +16,10 @@ const dmSans = DM_Sans({
 
 
 type RootLayoutProps = {
-  header?: React.ReactNode;
-  footer?: React.ReactNode;
   children: React.ReactNode;
 };
 
-export default function RootLayout({ header, children }: RootLayoutProps) {
+export default function RootLayout({  children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${dmSans.variable} antialiased`} suppressHydrationWarning>
 
@@ -31,7 +29,7 @@ export default function RootLayout({ header, children }: RootLayoutProps) {
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange>
-          <header role="banner">{header ?? <AnimatedHeader />}</header>
+           <AnimatedHeader />
           <main role="main" className="flex-1">
             {children}
           </main>

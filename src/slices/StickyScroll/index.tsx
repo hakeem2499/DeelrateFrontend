@@ -27,7 +27,7 @@ const StickyScroll: FC<StickyScrollProps> = ({ slice }) => {
         {/* Scrollable Content Container */}
         <div className="relative">
           {/* Top fade (optional) */}
-          <div className="sticky top-0 h-6 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="sticky top-0 h-6 bg-gradient-to-b from-muted-foreground to-transparent z-10 pointer-events-none"></div>
 
           {/* Scrollable content */}
           <ScrollArea className="overflow-y-auto max-h-[80dvh]  w-full  ">
@@ -37,7 +37,7 @@ const StickyScroll: FC<StickyScrollProps> = ({ slice }) => {
           </ScrollArea>
 
           {/* Bottom fade (optional) */}
-          <div className="sticky bottom-0 h-6 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="sticky bottom-0 h-6 bg-gradient-to-t from-muted-foreground to-transparent z-10 pointer-events-none"></div>
         </div>
       </div>
     </Bounded>

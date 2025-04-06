@@ -32,11 +32,11 @@ const routes: Route[] = [
 	},
   {
 		type: "privacy_policy",
-		path: "/policy/",
+		path: "/policy",
 	},
   {
 		type: "terms",
-		path: "/terms/",
+		path: "/terms",
 	}
 
 ];

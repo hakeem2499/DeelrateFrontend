@@ -102,6 +102,7 @@
   /* Dark theme overrides */
   --background-color: #171717;
   --foreground-color: #ffffff;
+  
 }
 
 
@@ -313,7 +314,6 @@ aside.open {
   height: 100%;
   left: 0;
   display: none;
-  background-color: var(--background-color);
   transform: translateY(-100%);
 }
 
