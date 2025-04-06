@@ -1,25 +1,23 @@
 {
   "format": "page",
-  "id": "contact_us",
-  "label": "Contact us",
+  "id": "about",
+  "label": "About",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "heading": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Heading",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1"
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "process_time_line": {
+              "type": "SharedSlice"
+            },
+            "heading_hero": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

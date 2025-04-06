@@ -1,4 +1,5 @@
 
+import Bounded from '@/app/components/ui/Bounded';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { asText } from '@prismicio/client';
@@ -7,7 +8,7 @@ import { PrismicText, SliceZone } from '@prismicio/react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import Bounded from '../../components/ui/Bounded';
+
 
 type Params = { uid: string };
 

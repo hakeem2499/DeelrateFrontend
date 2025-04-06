@@ -10,6 +10,8 @@ export const components = {
   heading_hero: dynamic(() => import("./HeadingHero")),
   hero: dynamic(() => import("./Hero")),
   hove_card: dynamic(() => import("./HoveCard")),
+  process_time_line: dynamic(() => import("./ProcessTimeLine")),
   rich_text: dynamic(() => import("./RichText")),
   stand_out: dynamic(() => import("./StandOut")),
+  sticky_scroll: dynamic(() => import("./StickyScroll")),
 };

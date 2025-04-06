@@ -1,10 +1,10 @@
 
 import { DM_Sans } from "next/font/google";
-import "./globals.css";
+import "../../app/globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
-import DefaultHeader from "./components/layout/DefaultHeader";
-import { AnimatedHeader } from "./components/layout/HomeHeader";
-import Footer from "./components/layout/Footer";
+import DefaultHeader from "../components/layout/DefaultHeader";
+import { AnimatedHeader } from "../components/layout/HomeHeader";
+import Footer from "../components/layout/Footer";
 
 
 const dmSans = DM_Sans({
@@ -18,19 +18,24 @@ const dmSans = DM_Sans({
 type RootLayoutProps = {
   header?: React.ReactNode;
   footer?: React.ReactNode;
-  children:React.ReactNode;
+  children: React.ReactNode;
 };
 
-export default function RootLayout({ header, footer, children }: RootLayoutProps) {
+export default function RootLayout({ header, children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${dmSans.variable} antialiased`}>
+    <html lang="en" className={`${dmSans.variable} antialiased`} suppressHydrationWarning>
+
       <body className="min-h-screen bg-background text-foreground font-sans flex flex-col">
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
           <header role="banner">{header ?? <AnimatedHeader />}</header>
           <main role="main" className="flex-1">
             {children}
           </main>
-          <Footer/>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

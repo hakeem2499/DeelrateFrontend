@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/react";
-import ButtonLink from "@/app/components/ui/ButtonLink";
+
 import { PrismicNextImage } from "@prismicio/next";
 import Bounded from "@/app/components/ui/Bounded";
+import ContactForm from "@/app/(submissions)/_components/ContactForm";
 
 /**
  * Props for `HeadingHero`.
@@ -27,10 +28,11 @@ const HeadingHero: FC<HeadingHeroProps> = ({ slice }) => {
         />
       </div>
       <Bounded >
-        <div className="mx-auto space-y-2 md:space-y-4 p-4 ml-0">
+        <div className="mx-auto space-y-2 md:space-y-4 text-amber-50 p-4 ml-0">
 
-          {isFilled.richText(slice.primary.heading) && (
+          {isFilled.richText(slice.primary.pagetype) && (
             <div className="text-balance  text-2xl md:text-4xl  font-semibold  ">
+              <div className="top-20 left-0 rounded-full  dark:bg-slate-100 bg-brand transition-colors duration-200 h-1  w-1/5" />
               <PrismicText field={slice.primary.pagetype} />
             </div>
           )}
@@ -46,6 +48,8 @@ const HeadingHero: FC<HeadingHeroProps> = ({ slice }) => {
             </div>
           )}
         </div>
+
+        
 
 
       </Bounded>

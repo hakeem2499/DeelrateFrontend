@@ -7,6 +7,8 @@ import { PrismicRichText, PrismicText } from '@prismicio/react';
 import Image from "next/image";
 import Bounded from "../ui/Bounded";
 import Brand from "../ui/Brand";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 
@@ -19,7 +21,7 @@ function LinkedinIcon(props: SVGProps<SVGSVGElement>) {
 }
 
 
-function Copyright(props: SVGProps<SVGSVGElement>) {
+export function Copyright(props: SVGProps<SVGSVGElement>) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256" {...props}><path fill="currentColor" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24m0 192a88 88 0 1 1 88-88a88.1 88.1 0 0 1-88 88m-32-88a32 32 0 0 0 57.6 19.2a8 8 0 0 1 12.8 9.61a48 48 0 1 1 0-57.62a8 8 0 0 1-12.8 9.61A32 32 0 0 0 96 128"></path></svg>
     )
@@ -112,7 +114,7 @@ export async function Footer() {
                     <div className="flex flex-col gap-4 md:gap-0  md:flex-row justify-between w-full md:items-center">
                         <div className="w-full md:w-fit  border-b  md:border-none py-2 md:py-0 border-gray-600">
 
-                            <Brand scale={0.7}  />
+                            <Brand scale={0.7} />
 
                         </div>
                         <div className="flex justify-center w-full md:w-fit md:justify-between gap-8 items-center">
@@ -154,7 +156,11 @@ export async function Footer() {
 
                     </div>
                 </nav>
+                <div className="flex  w-full flex-col gap-4 md:gap-8">
+                    <p className="text-xl text-balance font-semibold text-foreground not-dark:text-muted-foreground max-w-3xl">Join The List to Get the Latest on  real estate, SME, commodity, and infrastructure markets, plus insights on asset tokenization</p>
 
+                    <Link className="bg-foreground max-w-fit md:p-3 rounded-sm p-2 text-background hover:opacity-70" href="/newsletter">Join our Newsletter</Link>
+                </div>
                 {/* Policies Section */}
                 <div className="flex w-full justify-between md:px-10 px-2 py-4 border border-r-transparent border-l-transparent rounded-none border-gray-600 md:items-center">
                     <div className="flex items-center gap-4 md:gap-8">
@@ -173,7 +179,7 @@ export async function Footer() {
                             <li key={item.label || 'policy-item'}>
                                 <PrismicNextLink
                                     field={item.link_to_policies}
-                                    className="inline-flex text-gray-500 hover:text-gray-300 dark:hover:text-gray-900 items-center"
+                                    className="inline-flex text-gray-500 hover:text-gray-300 dark:hover:text-accent items-center"
                                 >
                                     {item.label}
                                 </PrismicNextLink>
@@ -182,9 +188,15 @@ export async function Footer() {
                     </ul>
 
                 </div>
+                <div className="text-xs md:text-base text-muted-foreground">
+                    <span className="font-semibold">DISCLAIMER:</span>
+                    THIS WEBSITE IS OPERATED BY DEELRATE (“DEELRATE”), A TECHNOLOGY PROVIDER OFFERING BLOCKCHAIN-BASED SOLUTIONS FOR TOKENIZING REAL ESTATE, SMALL AND MEDIUM ENTERPRISES (SMEs), COMMODITY ASSETS, AND INFRASTRUCTURE PROJECTS. DEELRATE IS NOT A REGISTERED BROKER-DEALER, INVESTMENT ADVISER, OR FINANCIAL ADVISOR AND IS NOT REGISTERED WITH ANY REGULATORY AGENCY OR BODY IN NIGERIA OR ELSEWHERE. DEELRATE DOES NOT PROVIDE INVESTMENT OR LEGAL ADVICE, ENDORSEMENTS, ANALYSIS, OR RECOMMENDATIONS REGARDING ANY ISSUERS, SECURITIES, OR DIGITAL ASSETS. NOTHING ON THIS WEBSITE SHALL CONSTITUTE OR BE CONSTRUED AS AN OFFERING, DISTRIBUTION, OR SOLICITATION OF SECURITIES OR AS INVESTMENT ADVICE OR INVESTMENT RECOMMENDATIONS BY DEELRATE OR ANY OF ITS AFFILIATES. ALL SECURITIES OFFERINGS AND DIGITAL ASSETS POWERED BY DEELRATE’S TECHNOLOGY ARE OFFERED BY, AND ALL INFORMATION RELATED THERETO IS THE RESPONSIBILITY OF, THE APPLICABLE ISSUER OF SUCH SECURITIES OR DIGITAL ASSETS. DEELRATE DOES NOT CUSTODY ANY DIGITAL SECURITIES OR DIGITAL ASSETS.
+
+
+                </div>
                 <p className="mx-auto text-xs gap-2 inline-flex items-center"><span><Copyright /></span> 2025 Deelrate. All Right Reserved</p>
             </footer>
-            
+
 
         </Bounded>
     );

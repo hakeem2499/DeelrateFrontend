@@ -7,6 +7,9 @@ import FeatureTitle from "@/app/components/ui/FeatureTitle";
 import FeatureDescription from "@/app/components/ui/FeatureDescription";
 import FeatureComponent from "@/app/components/ui/FeatureComponent";
 import { ImageField } from "@prismicio/types";
+import ContactForm from "@/app/(submissions)/_components/ContactForm";
+import NewsletterForm from "@/app/(submissions)/_components/NewsletterForm";
+import SaveSeatForm from "@/app/(submissions)/_components/SaveSeatForm";
 
 /**
  * Props for `Features`.
@@ -58,6 +61,7 @@ const Features: FC<FeaturesProps> = ({ slice }) => {
           </div>
         </div>
       </div>
+      <SaveSeatForm  />
     </Bounded>
   );
 };

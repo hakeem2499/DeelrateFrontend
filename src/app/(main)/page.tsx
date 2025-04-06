@@ -41,4 +41,5 @@ export default async function Index() {
   
   
   return <SliceZone slices={home.data.slices} components={components} />;
+  
 }

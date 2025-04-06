@@ -4,6 +4,67 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AboutDocumentDataSlicesSlice = ProcessTimeLineSlice | HeadingHeroSlice;
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+  /**
+   * Slice Zone field in *About*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
+   * Meta Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
+
 type AssetsDocumentDataSlicesSlice =
   | CtaSectionSlice
   | HoveCardSlice
@@ -114,82 +175,6 @@ interface AssetsDocumentData {
 export type AssetsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<AssetsDocumentData>, "assets", Lang>;
 
-type ContactUsDocumentDataSlicesSlice = never;
-
-/**
- * Content for Contact us documents
- */
-interface ContactUsDocumentData {
-  /**
-   * Heading field in *Contact us*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_us.heading
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  heading: prismic.TitleField;
-
-  /**
-   * Slice Zone field in *Contact us*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_us.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<ContactUsDocumentDataSlicesSlice> /**
-   * Meta Title field in *Contact us*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: contact_us.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *Contact us*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: contact_us.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Contact us*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact_us.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * Contact us document from Prismic
- *
- * - **API ID**: `contact_us`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ContactUsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<ContactUsDocumentData>,
-    "contact_us",
-    Lang
-  >;
-
 type PageDocumentDataSlicesSlice =
   | HeadingHeroSlice
   | StandOutSlice
@@ -266,6 +251,71 @@ interface PageDocumentData {
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+type PrivacyPolicyDocumentDataSlicesSlice = StickyScrollSlice;
+
+/**
+ * Content for privacy policy documents
+ */
+interface PrivacyPolicyDocumentData {
+  /**
+   * Slice Zone field in *privacy policy*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PrivacyPolicyDocumentDataSlicesSlice> /**
+   * Meta Title field in *privacy policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: privacy_policy.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *privacy policy*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: privacy_policy.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *privacy policy*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: privacy_policy.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * privacy policy document from Prismic
+ *
+ * - **API ID**: `privacy_policy`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PrivacyPolicyDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<PrivacyPolicyDocumentData>,
+    "privacy_policy",
+    Lang
+  >;
 
 /**
  * Item in *Settings → Policies*
@@ -444,11 +494,175 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type SubmissionPagesDocumentDataSlicesSlice = HeadingHeroSlice;
+
+/**
+ * Content for Submission Pages documents
+ */
+interface SubmissionPagesDocumentData {
+  /**
+   * Title field in *Submission Pages*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: submission_pages.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Submission Type field in *Submission Pages*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: submission_pages.submission_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  submission_type: prismic.SelectField<
+    "contact_us" | "newsletter" | "sponsor" | "seat"
+  >;
+
+  /**
+   * image field in *Submission Pages*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: submission_pages.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Slice Zone field in *Submission Pages*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: submission_pages.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SubmissionPagesDocumentDataSlicesSlice> /**
+   * Meta Title field in *Submission Pages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: submission_pages.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Submission Pages*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: submission_pages.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Submission Pages*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: submission_pages.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Submission Pages document from Prismic
+ *
+ * - **API ID**: `submission_pages`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SubmissionPagesDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<SubmissionPagesDocumentData>,
+    "submission_pages",
+    Lang
+  >;
+
+type TermsDocumentDataSlicesSlice = StickyScrollSlice;
+
+/**
+ * Content for Terms documents
+ */
+interface TermsDocumentData {
+  /**
+   * Slice Zone field in *Terms*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TermsDocumentDataSlicesSlice> /**
+   * Meta Title field in *Terms*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: terms.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Terms*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: terms.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Terms*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: terms.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Terms document from Prismic
+ *
+ * - **API ID**: `terms`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TermsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<TermsDocumentData>, "terms", Lang>;
+
 export type AllDocumentTypes =
+  | AboutDocument
   | AssetsDocument
-  | ContactUsDocument
   | PageDocument
-  | SettingsDocument;
+  | PrivacyPolicyDocument
+  | SettingsDocument
+  | SubmissionPagesDocument
+  | TermsDocument;
 
 /**
  * Item in *AssetShowcase → Default → Primary → Assets*
@@ -1141,6 +1355,108 @@ export type HoveCardSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ProcessTimeLine → Default → Primary → Process*
+ */
+export interface ProcessTimeLineSliceDefaultPrimaryProcessItem {
+  /**
+   * Title field in *ProcessTimeLine → Default → Primary → Process*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.process[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Body field in *ProcessTimeLine → Default → Primary → Process*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.process[].body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField;
+
+  /**
+   * image field in *ProcessTimeLine → Default → Primary → Process*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.process[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ProcessTimeLine → Default → Primary*
+ */
+export interface ProcessTimeLineSliceDefaultPrimary {
+  /**
+   * Heading field in *ProcessTimeLine → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+
+  /**
+   * Description field in *ProcessTimeLine → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Process field in *ProcessTimeLine → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_time_line.default.primary.process[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  process: prismic.GroupField<
+    Simplify<ProcessTimeLineSliceDefaultPrimaryProcessItem>
+  >;
+}
+
+/**
+ * Default variation for ProcessTimeLine Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessTimeLineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProcessTimeLineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ProcessTimeLine*
+ */
+type ProcessTimeLineSliceVariation = ProcessTimeLineSliceDefault;
+
+/**
+ * ProcessTimeLine Shared Slice
+ *
+ * - **API ID**: `process_time_line`
+ * - **Description**: ProcessTimeLine
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessTimeLineSlice = prismic.SharedSlice<
+  "process_time_line",
+  ProcessTimeLineSliceVariation
+>;
+
+/**
  * Primary content in *RichText → Default → Primary*
  */
 export interface RichTextSliceDefaultPrimary {
@@ -1359,6 +1675,61 @@ export type StandOutSlice = prismic.SharedSlice<
   StandOutSliceVariation
 >;
 
+/**
+ * Primary content in *StickyScroll → Default → Primary*
+ */
+export interface StickyScrollSliceDefaultPrimary {
+  /**
+   * content field in *StickyScroll → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_scroll.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Heading field in *StickyScroll → Default → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_scroll.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Default variation for StickyScroll Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyScrollSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StickyScrollSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StickyScroll*
+ */
+type StickyScrollSliceVariation = StickyScrollSliceDefault;
+
+/**
+ * StickyScroll Shared Slice
+ *
+ * - **API ID**: `sticky_scroll`
+ * - **Description**: StickyScroll
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyScrollSlice = prismic.SharedSlice<
+  "sticky_scroll",
+  StickyScrollSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1380,21 +1751,30 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataSlicesSlice,
       AssetsDocument,
       AssetsDocumentData,
       AssetsDocumentDataSlicesSlice,
-      ContactUsDocument,
-      ContactUsDocumentData,
-      ContactUsDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      PrivacyPolicyDocument,
+      PrivacyPolicyDocumentData,
+      PrivacyPolicyDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataPoliciesItem,
       SettingsDocumentDataContactInformationItem,
       SettingsDocumentDataCompanyItem,
       SettingsDocumentDataOurServicesItem,
+      SubmissionPagesDocument,
+      SubmissionPagesDocumentData,
+      SubmissionPagesDocumentDataSlicesSlice,
+      TermsDocument,
+      TermsDocumentData,
+      TermsDocumentDataSlicesSlice,
       AllDocumentTypes,
       AssetShowcaseSlice,
       AssetShowcaseSliceDefaultPrimaryAssetsItem,
@@ -1432,6 +1812,11 @@ declare module "@prismicio/client" {
       HoveCardSliceDefaultPrimary,
       HoveCardSliceVariation,
       HoveCardSliceDefault,
+      ProcessTimeLineSlice,
+      ProcessTimeLineSliceDefaultPrimaryProcessItem,
+      ProcessTimeLineSliceDefaultPrimary,
+      ProcessTimeLineSliceVariation,
+      ProcessTimeLineSliceDefault,
       RichTextSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
@@ -1444,6 +1829,10 @@ declare module "@prismicio/client" {
       StandOutSliceVariation,
       StandOutSliceDefault,
       StandOutSliceFourCards,
+      StickyScrollSlice,
+      StickyScrollSliceDefaultPrimary,
+      StickyScrollSliceVariation,
+      StickyScrollSliceDefault,
     };
   }
 }
