@@ -4,6 +4,7 @@ import { DM_Sans } from "next/font/google";
 import "../../globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import Header from '../_components/Header';
+import { Toaster } from '@/components/ui/sonner';
 
 const dmSans = DM_Sans({
     subsets: ["latin"],
@@ -24,6 +25,7 @@ const SubmissionRootLayout = ({ children }: { children: React.ReactNode }) => {
                     <Header />
                     <main>{children}</main>
                     <Footer />
+                    <Toaster closeButton={true} />
                 </ThemeProvider>
             </body>
         </html>

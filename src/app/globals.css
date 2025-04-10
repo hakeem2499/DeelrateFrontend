@@ -266,7 +266,7 @@
   background-color: var(--header-bg-end);
   backdrop-filter: blur(0.35rem);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 50px;
+  border-radius: 0.5rem;
   top: 1rem;
   width: 100%;
 }
@@ -341,17 +341,26 @@ aside.open .aside-right {
   margin-top: 10px;
   padding: 0 40px;
   color: white;
+  max-height: 100dvh;
+
   text-align: center;
 }
 
 .aside-list {
   list-style: none;
   padding: 0;
-  margin: 150px 0 0 50px;
+  margin: 80px 0 0 50px;
+}
+.aside-list-bottom {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 50px;
 }
 
-.aside-list li {
-  margin-bottom: 20px;
+.aside-list li,
+.aside-list-bottom li {
+  margin-bottom: 16px;
+  
 }
 
 .aside-anchor {
@@ -359,7 +368,7 @@ aside.open .aside-right {
   padding-bottom: 7px;
   color: #fff;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 20px;
   position: relative;
   font-weight: 500;
 }
@@ -432,6 +441,16 @@ aside.open .aside-right {
   }
 }
 
+.aside-list {
+  list-style: none;
+  padding: 0;
+  margin: 0px 0 0 50px;
+}
+
+.aside-anchor{
+  font-size: 20px;
+}
+
 .hero-content {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -502,10 +521,19 @@ aside.open .aside-right {
     display: block;
   }
 
+  
   .aside-right {
     width: 60%;
   }
 
+  .aside-list{
+    
+    margin: 0 0 0 50px;
+  }
+
+  .aside-anchor{
+    font-size: 30px;
+  }
   .bar {
     width: 50px;
   }
@@ -519,6 +547,8 @@ aside.open .aside-right {
     margin-right: 15px;
   }
 }
+
+
 
 .liquid-morph-element {
   width: 250px;
@@ -617,8 +647,9 @@ aside.open .aside-right {
 }
 
 .header-wrapper h3 {
-  font-size: clamp(24px, 5vw, 60px);
+  font-size: clamp(40px, 2.5vw, 60px);
   text-transform: uppercase;
+  word-wrap: break-word;
   line-height: 1;
   margin-bottom: 10px;
   transition: all 0.3s ease;
@@ -660,6 +691,8 @@ aside.open .aside-right {
     padding: 15px;
 
   }
+
+  
 
   .header-wrapper h3:first-child {
     transform: translateY(0) scale(1);
@@ -709,8 +742,8 @@ aside.open .aside-right {
   --card-foreground: oklch(0.984 0.003 247.858);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.929 0.013 255.508);
+  --primary: oklch(0.208 0.042 265.755);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);

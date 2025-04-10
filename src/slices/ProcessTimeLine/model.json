@@ -61,6 +61,13 @@
                   "constraint": {},
                   "thumbnails": []
                 }
+              },
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "label",
+                  "placeholder": ""
+                }
               }
             }
           }

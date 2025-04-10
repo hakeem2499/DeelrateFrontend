@@ -5,12 +5,14 @@ import { PrismicImage } from '@prismicio/react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import createGlobe from 'cobe';
+import { Content } from '@prismicio/client';
+import { PrismicNextImage } from '@prismicio/next';
 
 
 type FeatureProps = {
     hasImage?: boolean;
     image?: ImageField; // Single Prismic image
-    images?: ImageField[]; // Array of Prismic images
+    slice?: Content.FeaturesSlice; // Array of Prismic images
 };
 
 
@@ -36,8 +38,8 @@ const FirstFeature = ({ image }: FeatureProps) => (
                 </div>
             </div>
 
-            <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
-            <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-black via-transparent to-transparent w-full pointer-events-none" />
+            <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-background via-white dark:via-background to-transparent w-full pointer-events-none" />
+            <div className="absolute top-0 z-40 inset-x-0 h-60 bg-gradient-to-b from-white dark:from-background via-transparent to-transparent w-full pointer-events-none" />
         </div>
     </div>
 );
@@ -53,7 +55,8 @@ const ThirdFeature = ({ image }: FeatureProps) => (
             <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
                 {/* TODO */}
                 <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto " />
-                <PrismicImage
+                <PrismicNextImage
+                    priority
                     field={image}
                     width={800}
                     height={800}
@@ -64,7 +67,7 @@ const ThirdFeature = ({ image }: FeatureProps) => (
     </Link>
 );
 
-const SecondFeature = ({ images }: FeatureProps) => {
+const SecondFeature = ({ slice }: FeatureProps) => {
     const imageVariants = {
         whileHover: {
             scale: 1.1,
@@ -81,7 +84,7 @@ const SecondFeature = ({ images }: FeatureProps) => {
         <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
             {/* TODO */}
             <div className="flex flex-row -ml-20">
-                {(images ?? []).map((image, idx) => (
+                {slice?.primary.multipleimages.map((images, idx) => (
                     <motion.div
                         variants={imageVariants}
                         key={"images-first" + idx}
@@ -92,18 +95,19 @@ const SecondFeature = ({ images }: FeatureProps) => {
                         whileTap="whileTap"
                         className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
                     >
-                        <PrismicImage
-                            field={image}
-
+                        <PrismicNextImage
+                            field={images.image}
+                            priority
                             width="500"
                             height="500"
                             className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
+                            
                         />
                     </motion.div>
                 ))}
             </div>
             <div className="flex flex-row">
-                {(images ?? []).map((image, idx) => (
+                {slice?.primary.multipleimages.map((images, idx) => (
                     <motion.div
                         key={"images-second" + idx}
                         style={{
@@ -115,8 +119,8 @@ const SecondFeature = ({ images }: FeatureProps) => {
                         className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 shrink-0 overflow-hidden"
                     >
                         <PrismicImage
-                            field={image}
-
+                            field={images.image}
+                            
                             width="500"
                             height="500"
                             className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover shrink-0"
@@ -125,8 +129,8 @@ const SecondFeature = ({ images }: FeatureProps) => {
                 ))}
             </div>
 
-            <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-black to-transparent  h-full pointer-events-none" />
-            <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-black  to-transparent h-full pointer-events-none" />
+            <div className="absolute left-0 z-[100] inset-y-0 w-20 bg-gradient-to-r from-white dark:from-background to-transparent  h-full pointer-events-none" />
+            <div className="absolute right-0 z-[100] inset-y-0 w-20 bg-gradient-to-l from-white dark:from-background  to-transparent h-full pointer-events-none" />
         </div>
     );
 }
@@ -201,14 +205,15 @@ type Props = {
     FeatureIndex: keyof typeof featureComponents;
     hasImage?: boolean;
     image?: ImageField;
-    images?: ImageField[];
+    slice?: Content.FeaturesSlice;
+    
 }
 
 const FeatureComponent = ({
     FeatureIndex,
     hasImage = false,
     image,
-    images,
+    slice,
 
 }: Props) => {
     const Feature = featureComponents[FeatureIndex];
@@ -218,7 +223,7 @@ const FeatureComponent = ({
 
             hasImage={hasImage}
             image={image}
-            images={images}
+            slice={slice}
         />
     );
 };

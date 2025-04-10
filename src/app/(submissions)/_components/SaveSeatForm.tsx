@@ -154,7 +154,7 @@ const SaveSeatForm = () => {
                         </p>
                     </div>
 
-                    <Button  className='md:w-64 w-32 rounded-none dark:border ' type="submit" disabled={isPending}>
+                    <Button  className='md:w-64 w-32 rounded-none ' type="submit" disabled={isPending}>
                         {isPending ? <LoadingIcon className="animate-spin" /> : "Submit"}
                     </Button>
                 </form>

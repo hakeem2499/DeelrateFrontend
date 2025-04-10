@@ -63,5 +63,52 @@
 			}
 		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "noImage",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Something"
+						}
+					}
+				]
+			},
+			"body": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim minim eiusmod ad duis laborum ea dolore dolore quis ipsum. Aliqua non labore consequat nostrud deserunt incididunt aliquip ad velit aliquip elit proident in."
+						}
+					}
+				]
+			},
+			"cta_link": {
+				"key": "22c63386-0ecf-4bb1-ba6f-6ceceded3702",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"link_label": {
+				"__TYPE__": "FieldContent",
+				"value": "golden",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

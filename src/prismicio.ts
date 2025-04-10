@@ -35,6 +35,14 @@ const routes: Route[] = [
 		path: "/policy",
 	},
   {
+		type: "about",
+		path: "/about",
+	},
+  {
+		type: "our_leadership",
+		path: "/leadership",
+	},
+  {
 		type: "terms",
 		path: "/terms",
 	}

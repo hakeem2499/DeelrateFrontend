@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicText, SliceComponentProps } from "@prismicio/react";
 import Bounded from "@/app/components/ui/Bounded";
 import FeatureCard from "@/app/components/ui/FeatureCard";
@@ -10,6 +10,7 @@ import { ImageField } from "@prismicio/types";
 import ContactForm from "@/app/(submissions)/_components/ContactForm";
 import NewsletterForm from "@/app/(submissions)/_components/NewsletterForm";
 import SaveSeatForm from "@/app/(submissions)/_components/SaveSeatForm";
+import TypewriterEffectSmooth from "@/app/(submissions)/_components/ui/TypewriterEffect";
 
 /**
  * Props for `Features`.
@@ -46,22 +47,26 @@ const Features: FC<FeaturesProps> = ({ slice }) => {
         <div className="relative ">
           <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
             {slice.primary.feature.map((feature, index) => (
-              <FeatureCard key={index} className={featureComponentsClassname[feature.featureindex ?? "First"]}>
+              <FeatureCard key={index} className={featureComponentsClassname[feature.featureindex ?? "Fourth"]}>
                 <FeatureTitle><PrismicText field={feature.title} /></FeatureTitle>
                 <FeatureDescription><PrismicText field={feature.description} /></FeatureDescription>
                 <div className=" h-full w-full"><FeatureComponent
-                  FeatureIndex={feature.featureindex ?? "First"}
-                  hasImage
+                  FeatureIndex={feature.featureindex ?? "Second"}
+                  hasImage={feature.hasimage}
                   image={feature.image} // Single image
-                  images={slice.primary.multipleimages.map(image => image as ImageField)} // Image array
-                  
+                  slice={slice} // Image array
+
                 /></div>
               </FeatureCard>
             ))}
           </div>
         </div>
       </div>
-      <SaveSeatForm  />
+      {isFilled.group(slice.primary.words) && (
+
+        <TypewriterEffectSmooth words={slice.primary.words.map(word => ({ text: word.word ?? "" }))} />
+      )}
+      <SaveSeatForm />
     </Bounded>
   );
 };

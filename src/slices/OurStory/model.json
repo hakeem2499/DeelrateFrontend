@@ -1,0 +1,97 @@
+{
+  "id": "our_story",
+  "type": "SharedSlice",
+  "name": "OurStory",
+  "description": "OurStory",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "heading2,heading3,heading4"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "ceo_image": {
+          "type": "Image",
+          "config": {
+            "label": "ceo image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "links": {
+          "type": "Group",
+          "config": {
+            "label": "Links",
+            "repeat": true,
+            "fields": {
+              "link_type": {
+                "type": "Select",
+                "config": {
+                  "label": "Link Type",
+                  "placeholder": "",
+                  "options": [
+                    "Leadership",
+                    "Careers",
+                    "Location"
+                  ]
+                }
+              },
+              "link": {
+                "type": "Link",
+                "config": {
+                  "label": "lInk",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        },
+        "ctalink_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "CtaLink Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading3,heading4,heading5,heading6"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

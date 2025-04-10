@@ -26,6 +26,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "our_story": {
+              "type": "SharedSlice"
+            },
+            "blog": {
+              "type": "SharedSlice"
+            },
+            "how_it_works": {
+              "type": "SharedSlice"
+            },
             "heading_hero": {
               "type": "SharedSlice"
             },

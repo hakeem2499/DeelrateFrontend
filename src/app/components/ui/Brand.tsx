@@ -22,7 +22,7 @@ const Brand = ({
   return (
     <Link 
       className={clsx(
-        'inline-flex transition-transform duration-200 items-center gap-1',
+        'inline-flex transition-transform max-sm:scale-75 duration-200 items-center gap-1',
       )} 
       href="/"
       style={{

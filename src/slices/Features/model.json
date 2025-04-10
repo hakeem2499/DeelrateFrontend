@@ -93,17 +93,28 @@
             "label": "MultipleImages",
             "repeat": true,
             "fields": {
-              "icon": {
-                "type": "Select",
+              "image": {
+                "type": "Image",
                 "config": {
-                  "label": "Icon",
-                  "placeholder": "",
-                  "options": [
-                    "Invest",
-                    "Earn",
-                    "RaiseCapital",
-                    "Diversify"
-                  ]
+                  "label": "image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "words": {
+          "type": "Group",
+          "config": {
+            "label": "words",
+            "repeat": true,
+            "fields": {
+              "word": {
+                "type": "Text",
+                "config": {
+                  "label": "word",
+                  "placeholder": ""
                 }
               }
             }

@@ -8,8 +8,11 @@ import ThemeToggleSwitch from '../ThemeSwitch';
 import Brand from '../ui/Brand';
 import { motion } from 'motion/react';
 import { HoverBorderGradient } from '../ui/HoverBoderGradient';
+import { buttonVariants } from '@/components/ui/button';
+import { Content } from '@prismicio/client';
+import { PrismicNextLink } from '@prismicio/next';
 
-export const AnimatedHeader = () => {
+export const AnimatedHeader = ({ settings }: { settings: Content.SettingsDocument }) => {
     const [scrolled, setScrolled] = useState(false);
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
@@ -54,25 +57,40 @@ export const AnimatedHeader = () => {
                 <div className="absolute inset-0 flex">
                     <div className="aside-section aside-left w-1/2 bg-slate-950 not-dark:bg-foreground h-full">
                         <div className="aside-content items-center flex flex-col gap-8 justify-center h-full">
-                            <p className="text-4xl text-center-text-balance font-semibold">
+                            <p className="text-transparent text-5xl  bg-clip-text not-italic bg-gradient-to-r font-semibold from-brand to-orange-700 via-brand">
                                 Own a Piece of the Future
                             </p>
-                            <HoverBorderGradient onClick={() => { window.location.href = '/'; }}
+                            <HoverBorderGradient
                             >
 
 
-                                <span>Save a Seat</span>
+                                <Link href="/save-a-seat">Save a Seat</Link>
 
                             </HoverBorderGradient>
                         </div>
                     </div>
-                    <div className="aside-section aside-right w-1/2 bg-white h-full">
-                        <ul className="aside-list">
-                            <li><Link href="/" className="aside-anchor">Link</Link></li>
-                            <li><Link href="/" className="aside-anchor">Link</Link></li>
-                            <li><Link href="/" className="aside-anchor">Link</Link></li>
-                            <li><Link href="/" className="aside-anchor">Link</Link></li>
+                    <div className="aside-section aside-right flex flex-col md:flex-row pt-20 lg:pt-0  items-start lg:items-center  gap-0 md:gap-16  bg-white h-full">
+                        <ul className="aside-list ">
+                            {settings.data.company.map((company, index) => (
+                                <li key={index} className="aside-list-item">
+                                    <PrismicNextLink field={company.link_to_company} className="aside-anchor">{company.label}</PrismicNextLink>
+                                </li>
+                            ))}
+
+
+
                         </ul>
+                        <ul className="aside-list-bottom ">
+
+                            {settings.data.our_services.map((service, index) => (
+                                <li key={index} className="aside-list-item">
+                                    <PrismicNextLink field={service.link_to_services} className="aside-anchor">{service.label}</PrismicNextLink>
+                                </li>
+                            ))}
+
+
+                        </ul>
+
                     </div>
                 </div>
             </aside>

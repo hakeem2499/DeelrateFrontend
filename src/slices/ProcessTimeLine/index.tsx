@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, JSX } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import ProcessTimeLineClient from "./ProcessTimeLineClient";
+import Bounded from "@/app/components/ui/Bounded";
 
 /**
  * Props for `ProcessTimeLine`.
@@ -11,15 +13,14 @@ export type ProcessTimeLineProps =
 /**
  * Component for "ProcessTimeLine" Slices.
  */
-const ProcessTimeLine: FC<ProcessTimeLineProps> = ({ slice }) => {
+const ProcessTimeLine: FC<ProcessTimeLineProps> = ({ slice }: ProcessTimeLineProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for process_time_line (variation: {slice.variation})
-      Slices
-    </section>
+      <ProcessTimeLineClient slice={slice}/>
+    </Bounded>
   );
 };
 

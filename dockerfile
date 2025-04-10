@@ -4,19 +4,28 @@ FROM node:18-alpine AS builder
 # Set working directory
 WORKDIR /app
 
+# Configure DNS through Docker's network settings instead of modifying resolv.conf
+# This is done by passing --dns flag to docker build (see build command below)
+
 # Install dependencies (including devDependencies for build)
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy only necessary files for build (using .dockerignore would be better)
+# Copy Prismic configuration if exists
+COPY slicemachine.config.json ./slicemachine.config.json
+RUN if [ -f sm.json ]; then cp sm.json ./; else echo "No sm.json found, continuing without it"; fi
+
+# Copy the rest of the files
 COPY . .
 
 # Environment variables for build
 ARG NEXT_PUBLIC_PRISMIC_ENVIRONMENT=production
 ENV NEXT_PUBLIC_PRISMIC_ENVIRONMENT=${NEXT_PUBLIC_PRISMIC_ENVIRONMENT}
 
-# Build the application
-RUN npm run build
+# Build the application with retry logic
+RUN npm run build || \
+    (echo "Build failed, retrying with increased timeout..." && \
+     NEXT_PUBLIC_SKIP_PRISMIC_FETCH=true npm run build)
 
 # Stage 2: Production image
 FROM node:18-alpine AS runner

@@ -29,27 +29,9 @@ export default async function Page({ params }: { params: Promise<Params> }) {
     const page = await fetchAssetsPage(resolvedParams.uid);
 
     return (
-        <Bounded>
-            <div className="w-full mt-16 grid place-items-center gap-4 text-center">
-                
-                <h1 className="text-5xl text-center text-balance font-semibold mt-4">
-                    <PrismicText field={page.data.asset} />
-                </h1>
-                <p className="mb-4 mt-8 max-w-xl font-semibold text-start text-lg">
-                    <PrismicText field={page.data.stats_data} />
-                </p>
-                <PrismicNextImage
-                    field={page.data.image}
-                    className="rounded-lg h-auto w-full object-cover"
-                    quality={100}
-                    priority
-                />
-            </div>
-            <div className="mx-auto w-full">
-                <SliceZone slices={page.data.slices} components={components} />
-            </div>
-            
-        </Bounded>
+
+        <SliceZone slices={page.data.slices} components={components} />
+
     );
 }
 

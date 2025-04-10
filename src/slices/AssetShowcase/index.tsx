@@ -51,8 +51,8 @@ const AssetShowcase: FC<AssetShowcaseProps> = async ({ slice }): Promise<JSX.Ele
             <div className="header-wrapper">
               <h3><PrismicText field={asset.data.asset} /></h3>
               <h3><PrismicNextLink document={asset}>See More</PrismicNextLink></h3>
-              <p className="text-lg font-semibold border-l-4 pl-2 md:pl-4  border-brand  lowercase">
-                <PrismicText field={asset.data.description} />
+              <p className="text-base w-full font-semibold border-l-4 pl-2 md:pl-4 text-balance  border-brand ">
+                <PrismicText field={asset.data.stats_data} />
               </p>
             </div>
           </div>

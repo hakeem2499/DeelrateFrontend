@@ -88,9 +88,12 @@ const StandOut: FC<StandOutProps> = ({ slice }) => {
       <h4 className="text-center text-balance text-2xl md:text-4xl font-semibold">
         <PrismicText field={slice.primary.title} />
       </h4>
-      {slice.primary.cards.map((item, index) => (
-        <StandOutCard key={index} title={<PrismicText field={item.heading} />} description={<PrismicText field={item.description} />} icon={ Icons[item.icon ?? "security"]({}) } index={index} />
-      ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
+
+        {slice.primary.cards.map((item, index) => (
+          <StandOutCard key={index} title={<PrismicText field={item.heading} />} description={<PrismicText field={item.description} />} icon={Icons[item.icon ?? "security"]({})} index={index} />
+        ))}
+      </div>
     </Bounded>
   );
 };

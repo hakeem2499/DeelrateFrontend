@@ -1,10 +1,14 @@
+import { createClient } from '@/prismicio';
 import React from 'react'
+import { AnimatedHeader } from './HomeHeader';
 
-type Props = {}
 
-function DefaultHeader({}: Props) {
+
+async function  DefaultHeader() {
+  const client = createClient();
+  const settings = await client.getSingle('settings');
   return (
-    <div>DefaultHeader</div>
+    <AnimatedHeader settings={settings}/>
   )
 }
 
